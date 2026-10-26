@@ -85,7 +85,7 @@
 
 .synthetic-badge {
   padding: 4px 8px;
-  color: var(--muted);
+  color: #5f5a51;
   background: var(--paper-deep);
   border: 1px solid var(--rule);
   border-radius: var(--radius-sm);
