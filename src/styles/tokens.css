@@ -1,0 +1,51 @@
+:root {
+  --paper: #f4efe4;
+  --paper-deep: #ece4d5;
+  --surface: #fbf8f1;
+  --surface-raised: #fffdf8;
+  --ink: #1f1d19;
+  --muted: #6f6a60;
+  --rule: #d8cebc;
+  --rule-strong: #bcae97;
+  --accent: #1f5c55;
+  --accent-deep: #174640;
+  --accent-wash: #e5eeea;
+  --slate: #5b6670;
+  --slate-wash: #e7eaed;
+  --amber: #8a5414;
+  --amber-wash: #f5e8d6;
+  --green: #2f6b45;
+  --green-wash: #e4efe7;
+  --rust: #a34a2a;
+  --rust-deep: #8b3c20;
+  --rust-wash: #f7e4dd;
+
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-body: "Aptos", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+
+  --step-1: 0.78rem;
+  --step-2: 0.88rem;
+  --step-3: 1rem;
+  --step-4: 1.18rem;
+  --step-5: 1.42rem;
+  --step-6: 1.85rem;
+  --step-7: 2.45rem;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  --radius: 5px;
+  --radius-sm: 3px;
+  --shadow-paper: 0 1px 0 rgba(31, 29, 25, 0.04), 0 8px 18px rgba(83, 71, 51, 0.06);
+  --focus: 0 0 0 3px rgba(31, 92, 85, 0.32);
+  --transition: 140ms ease;
+  --content-width: 1240px;
+  --rail-width: 220px;
+}
