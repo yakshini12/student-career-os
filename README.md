@@ -44,12 +44,12 @@ npm run lint
 
 The app is a static Vite frontend with no backend, server functions, environment variables, or external services.
 
-- Build command: `npm run build`
-- Output directory: `dist`
-- Install command: `npm install`
-- Node.js: `^20.19.0` or `>=22.12.0`
+- Build command: `npm ci && npm run build`
+- Publish directory: `dist`
+- Node.js: pinned to `24.22.1` in `.node-version` (satisfies Vite 8)
+- Environment variables: none required
 
-On Vercel, import the repository and use those settings. No environment variables are required.
+The repository includes a Render Blueprint in `render.yaml` for a static site. On Render, choose **New > Blueprint**, connect this repository, and apply the blueprint. The site is served from Render's global CDN over HTTPS.
 
 ## Demo path
 
