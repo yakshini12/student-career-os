@@ -93,6 +93,7 @@
   font-size: 0.67rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .storage-warning,
@@ -2122,14 +2123,14 @@ tbody th {
 
   .top-bar {
     padding: var(--space-3) var(--space-4);
+    flex-wrap: wrap;
   }
 
   .brand {
     min-width: 0;
   }
 
-  .brand-kicker,
-  .synthetic-badge {
+  .brand-kicker {
     display: none;
   }
 
@@ -2234,6 +2235,11 @@ tbody th {
   .top-actions {
     width: 100%;
     margin-left: 0;
+    flex-wrap: wrap;
+  }
+
+  .synthetic-badge {
+    flex: 0 0 auto;
   }
 
   .top-actions .btn {

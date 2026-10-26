@@ -6,7 +6,7 @@ This is a proof of concept with **synthetic sample data**. It is not a job board
 
 ## Run it
 
-Requirements: Node.js 20+ and npm.
+Requirements: Node.js `^20.19.0` or `>=22.12.0` and npm (Vite 8 requires one of these ranges).
 
 ```bash
 npm install
@@ -29,6 +29,27 @@ npm test
 npm run typecheck
 npm run lint
 ```
+
+## Features
+
+- A seeded Today dashboard with the nearest deadline, active applications, evidence fit, and the top-ranked next action.
+- Six source-labelled sample opportunities with category filters and a manual application pipeline.
+- A requirement-level fit map that explains supported, partial, missing, and unsupported evidence.
+- A transparent action ranking with visible impact, urgency, effort, score arithmetic, and limitations.
+- Editable profile, practice snapshot, projects, milestones, and typed evidence records.
+- A deterministic eight-check containerization gate with sample bundles, failure detail, verification history, and an atomic pass.
+- Local persistence and a one-click sample reset.
+
+## Build and deploy
+
+The app is a static Vite frontend with no backend, server functions, environment variables, or external services.
+
+- Build command: `npm run build`
+- Output directory: `dist`
+- Install command: `npm install`
+- Node.js: `^20.19.0` or `>=22.12.0`
+
+On Vercel, import the repository and use those settings. No environment variables are required.
 
 ## Demo path
 
@@ -70,7 +91,7 @@ It does **not** build an image, run a container, reach the network, verify a dep
 - **No migration.** A schema-version mismatch or unreadable saved state reseeds the sample and shows a notice.
 - **Not production hardened.** This is a hackathon proof of concept, not a multi-user or accessible-compliance-audited product.
 
-## Project structure
+## Architecture
 
 ```text
 src/model/      types, seed-independent rules, fit, actions, verification, reducer, persistence

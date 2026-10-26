@@ -7,7 +7,7 @@ import { COMPLETE_BUNDLE, INCOMPLETE_BUNDLE, validateArtifactBundle } from "../m
 import type { ArtifactBundle, HistoryEntry, VerificationStatus } from "../model/types";
 import { useWorkspace } from "../store/workspace-context";
 import { formatDisplayDateTime, nowIso } from "../model/dates";
-import { VERIFICATION_LIMITATION } from "../data/copy";
+import { VERIFICATION_LIMITATION, milestoneStatusLabels } from "../data/copy";
 
 const verificationStatusLabels: Record<VerificationStatus, string> = {
   unsupported: "Unsupported",
@@ -35,6 +35,13 @@ export function VerificationView({
   const milestone = state.projects
     .find((project) => project.id === "campus_cart")
     ?.milestones.find((item) => item.id === "campus_cart_containerize");
+  const milestoneStatus = milestone?.status ?? "not_started";
+  const milestoneTone =
+    milestoneStatus === "done"
+      ? "supported"
+      : milestoneStatus === "in_progress"
+        ? "partial"
+        : "missing";
   const verifiedEvidence = state.projects
     .flatMap((project) => project.evidence)
     .find((item) => item.id === verification.verifiedEvidenceId);
@@ -109,7 +116,9 @@ export function VerificationView({
           <div className="milestone-inline">
             <span className="mono-label">Milestone</span>
             <span>{milestone?.label ?? "Containerize API"}</span>
-            <StatusChip status={milestone?.status === "done" ? "supported" : "partial"} />
+            <span className={`status-chip status-${milestoneTone}`}>
+              {milestoneStatusLabels[milestoneStatus]}
+            </span>
           </div>
           {milestone && milestone.status !== "done" ? (
             <button

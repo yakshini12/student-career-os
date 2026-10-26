@@ -12,7 +12,6 @@ import {
   PRACTICE_SAMPLE_LABEL,
   SYNTHETIC_NOTICE,
   applicationStatusLabels,
-  capabilityLabels,
   pipelineStatuses,
   timelineLabel,
 } from "../data/copy";
@@ -212,8 +211,9 @@ export function TodayView({
             ))}
           </ul>
           <p className="micro-note">
-            {capabilityLabels[opportunity.requirements[0]?.capability ?? "api"]} and{" "}
-            {coverage.supported} of {coverage.total} requirements currently have supported evidence.
+            This fit map compares {coverage.total} requirements with the evidence saved in your
+            workspace. {coverage.supported} of them{" "}
+            {coverage.supported === 1 ? "is" : "are"} currently supported.
           </p>
           <p className="micro-note">{COMPETENCE_DISCLAIMER}</p>
         </section>
