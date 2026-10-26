@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Student Career OS — App Map</title>
+<style>
+  :root {
+    color-scheme: light;
+    --ink: #1d2421;
+    --muted: #59635d;
+    --paper: #f4efe4;
+    --surface: #fffdf8;
+    --rule: #cfc7b6;
+    --rule-strong: #9c9482;
+    --accent: #1f5c55;
+    --accent-soft: #dcebe6;
+    --amber: #7a4b0f;
+    --amber-soft: #f6e6c8;
+    --mono: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+    --serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --sans: "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background:
+      linear-gradient(rgba(31, 92, 85, 0.035) 1px, transparent 1px),
+      var(--paper);
+    background-size: 100% 28px;
+    font-family: var(--sans);
+    line-height: 1.55;
+  }
+  main { width: min(980px, 100% - 32px); margin: 0 auto; padding: 40px 0 64px; }
+  header { border-bottom: 2px solid var(--ink); padding-bottom: 20px; }
+  .kicker { margin: 0; color: var(--accent); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  h1 { margin: 6px 0 8px; font-family: var(--serif); font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1.05; font-weight: 600; }
+  .lede { margin: 0; max-width: 72ch; color: var(--muted); font-size: 1.02rem; }
+  section { margin-top: 32px; }
+  h2 { margin: 0 0 12px; font-family: var(--serif); font-size: 1.45rem; }
+  h3 { margin: 20px 0 6px; font-size: 1rem; }
+  p { margin: 0 0 12px; }
+  code, kbd { font-family: var(--mono); font-size: 0.86em; background: var(--surface); border: 1px solid var(--rule); padding: 1px 4px; border-radius: 2px; }
+  pre { overflow-x: auto; padding: 12px 14px; background: var(--surface); border: 1px solid var(--rule); border-left: 4px solid var(--accent); font-family: var(--mono); font-size: 0.82rem; }
+  .panel { background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: 18px; }
+  .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .card { background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: 14px 16px; }
+  .card h3 { margin-top: 0; }
+  .tag { display: inline-block; margin-bottom: 8px; padding: 2px 7px; color: var(--accent); background: var(--accent-soft); border-radius: 2px; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; }
+  .note { border-left: 4px solid var(--amber); background: var(--amber-soft); padding: 12px 14px; }
+  .muted { color: var(--muted); }
+  .diagram { overflow-x: auto; padding: 10px 0; }
+  svg { display: block; min-width: 760px; width: 100%; height: auto; }
+  svg text { font-family: var(--sans); fill: var(--ink); }
+  svg .box { fill: var(--surface); stroke: var(--rule-strong); stroke-width: 1.5; }
+  svg .action { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2; }
+  svg .result { fill: var(--amber-soft); stroke: var(--amber); stroke-width: 2; }
+  svg .arrow { stroke: var(--ink); stroke-width: 1.8; fill: none; }
+  svg .small { font-size: 12px; fill: var(--muted); }
+  svg .label { font-size: 14px; font-weight: 600; }
+  ol, ul { padding-left: 22px; }
+  li { margin-bottom: 8px; }
+  a { color: var(--accent); }
+  a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  summary { cursor: pointer; font-weight: 600; }
+  details { margin-top: 10px; }
+  footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.88rem; }
+  @media (max-width: 640px) {
+    main { padding-top: 24px; }
+    .panel { padding: 14px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="kicker">Student Career OS · take-home app map</p>
+    <h1>One action through the connected evidence loop</h1>
+    <p class="lede">A plain-language guide to the finished proof of concept: submit a containerization bundle, watch deterministic checks run, and see the opportunity fit update from the same saved state.</p>
+  </header>
+
+  <section aria-labelledby="purpose">
+    <h2 id="purpose">What the app does</h2>
+    <p><strong>Student Career OS</strong> is a local career workspace for a student targeting backend internships. It keeps a profile, practice snapshot, projects, evidence, sample opportunities, and applications in one state. From an opportunity it computes a rule-based fit, ranks concrete next actions, and sends gated evidence through a verification workspace. Passing the gate creates verified evidence and recomputes fit. Nothing is stored twice: fit, coverage, and rankings are calculated on read.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="tag">State</span>
+        <h3>One workspace</h3>
+        <p>A React reducer holds profile, projects, evidence, opportunities, applications, verification, and history.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Rules</span>
+        <h3>Deterministic model</h3>
+        <p>Fit, action scores, Dockerfile checks, and workspace validation are pure TypeScript with no backend or LLM.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Storage</span>
+        <h3>Local persistence</h3>
+        <p><code>localStorage</code> under <code>student-career-os:v1</code>, scoped to the exact page origin.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="map">
+    <h2 id="map">The action, its code, and its visible result</h2>
+    <div class="diagram">
+      <svg viewBox="0 0 940 250" role="img" aria-labelledby="diagram-title diagram-desc">
+        <title id="diagram-title">Flow from running verification to an updated fit</title>
+        <desc id="diagram-desc">The verification view dispatches a run, the reducer calls the check engine and writes verified evidence, and the fit selectors produce three of five supported on Today and the opportunity detail.</desc>
+        <rect class="action" x="10" y="76" width="170" height="86" rx="4" />
+        <text x="24" y="102" class="label">Run verification</text>
+        <text x="24" y="124" class="small">VerificationView.tsx</text>
+        <text x="24" y="142" class="small">run() dispatches RUN_VERIFICATION</text>
+
+        <path class="arrow" d="M180 119 H236" marker-end="url(#arrow)" />
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#1d2421" />
+          </marker>
+        </defs>
+
+        <rect class="box" x="236" y="56" width="208" height="126" rx="4" />
+        <text x="252" y="82" class="label">Reducer + check engine</text>
+        <text x="252" y="104" class="small">state.ts: RUN_VERIFICATION</text>
+        <text x="252" y="122" class="small">verification.ts:</text>
+        <text x="252" y="140" class="small">runContainerizationChecks()</text>
+        <text x="252" y="158" class="small">8 checks · pass/fail</text>
+
+        <path class="arrow" d="M444 119 H500" marker-end="url(#arrow)" />
+
+        <rect class="box" x="500" y="56" width="190" height="126" rx="4" />
+        <text x="516" y="82" class="label">Verified evidence</text>
+        <text x="516" y="104" class="small">state.ts line 301</text>
+        <text x="516" y="122" class="small">ev_campus_container_</text>
+        <text x="516" y="140" class="small">verified</text>
+        <text x="516" y="158" class="small">source: "verified"</text>
+
+        <path class="arrow" d="M690 119 H746" marker-end="url(#arrow)" />
+
+        <rect class="result" x="746" y="56" width="184" height="126" rx="4" />
+        <text x="762" y="82" class="label">Fit recomputed</text>
+        <text x="762" y="104" class="small">fit.ts: computeFit()</text>
+        <text x="762" y="122" class="small">containerizationRow()</text>
+        <text x="762" y="140" class="small">3 of 5 supported</text>
+        <text x="762" y="158" class="small">deployment now first</text>
+      </svg>
+    </div>
+    <p class="muted">The amber result is calculated from saved evidence, not written into the workspace as a second copy of the truth.</p>
+  </section>
+
+  <section aria-labelledby="route">
+    <h2 id="route">Three-stop reference route</h2>
+    <p class="muted">This is a reference route, not a record of a guided tour. Paths are relative to the repository root.</p>
+    <ol>
+      <li>
+        <strong>Start at the dispatch.</strong> Open <code>src/views/VerificationView.tsx</code>. Find <code>run()</code> around line 71. It dispatches <code>{ type: "RUN_VERIFICATION", runAt }</code> only after a valid bundle is pending. The submit path above it is <code>submit()</code>, which dispatches <code>SUBMIT_ARTIFACT</code>.
+      </li>
+      <li>
+        <strong>Follow the transition.</strong> Open <code>src/model/state.ts</code>. In <code>reduceWorkspace</code>, find <code>case "RUN_VERIFICATION"</code> around line 274. The reducer calls <code>runContainerizationChecks</code>, returns to Unsupported on failure, or atomically writes the verified evidence item (line 301), marks the milestone done, appends history, and stores the verified evidence ID.
+      </li>
+      <li>
+        <strong>See why the number changed.</strong> Open <code>src/model/fit.ts</code>. <code>containerizationRow()</code> around line 440 reads the verification status plus verified evidence; <code>computeFit()</code> around line 524 maps every requirement. <code>src/store/selectors.ts</code> exposes <code>selectedCoverage</code> and <code>selectedActions</code>, which Today and the opportunity detail render.
+      </li>
+    </ol>
+    <details>
+      <summary>Where the visible verified card comes from</summary>
+      <p><code>src/components/EvidenceCard.tsx</code> checks <code>evidence.source === "verified"</code> and renders the Verified stamp and the “Editing and removal are locked until reset” note. <code>src/views/ProjectsView.tsx</code> withholds edit and remove handlers for verified evidence.</p>
+    </details>
+  </section>
+
+  <section aria-labelledby="change">
+    <h2 id="change">To change this, start here</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Change a check rule</h3>
+        <p>Edit the relevant <code>check(...)</code> call in <code>src/model/verification.ts</code>, then update <code>src/test/verification.test.ts</code>. The incomplete bundle must still fail only checks 6 and 8.</p>
+      </div>
+      <div class="card">
+        <h3>Change scoring or ordering</h3>
+        <p>Edit the <code>impact</code> and <code>effort</code> tables in <code>src/model/actions.ts</code>. The ranking formula is <code>impact × urgency ÷ effort</code>; tie-breakers live in the same file.</p>
+      </div>
+      <div class="card">
+        <h3>Change what fit reads</h3>
+        <p>Start in <code>src/model/fit.ts</code>. API, database, deployment, testing, documentation, collaboration, and data pipeline each have their own evaluation function. Capabilities alone never create Partial.</p>
+      </div>
+      <div class="card">
+        <h3>Change the seed or copy</h3>
+        <p>Seed data is in <code>src/data/seed.ts</code>; shared labels and disclaimers are in <code>src/data/copy.ts</code>. Keep every opportunity labelled <code>Sample — not live</code>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="practice">
+    <h2 id="practice">A practice to reuse</h2>
+    <div class="panel">
+      <p><strong>Write the observable contract before wiring the UI.</strong> This project’s verification contract is concrete: the incomplete sample must pass 6 of 8 checks and fail exactly <em>Command</em> and <em>Port mapping</em>; the complete sample must pass 8/8; a pass must create <code>ev_campus_container_verified</code> with matching timestamps and move coverage from 2 of 5 to 3 of 5. Those statements are encoded in <code>src/test/verification.test.ts</code>, <code>src/test/state.test.ts</code>, and <code>src/test/journey.test.ts</code>.</p>
+      <p>Because the expected output was written down first, a broken parser or a UI that skipped the atomic evidence write would fail a test instead of quietly producing a believable demo. On another project, turn the riskiest user-visible claim into one exact before/after assertion before building the screen around it.</p>
+      <p class="muted">Reference: <code>devpost/spec.md</code> → Verification Engine and Build and Test Plan; <code>src/test/journey.test.ts</code> → “the scripted Northstar journey”.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="run">
+    <h2 id="run">Run it again</h2>
+    <pre>npm install
+npm run dev
+# open the local URL Vite prints
+
+npm test
+npm run typecheck
+npm run lint
+npm run build</pre>
+    <p class="note">The app is a local proof of concept with synthetic data. It has no backend, accounts, live opportunity feed, platform sync, LLM matching, or application submission. The verification gate inspects bundle text only; it does not build an image or run a container. Deployment evidence is self-reported and cannot become Supported.</p>
+  </section>
+
+  <footer>
+    <p>Source snapshot: <code>0c00d08</code> (“Build Student Career OS proof of concept”). This map is a static snapshot of the code at that commit and can drift after later edits. Generated from the finished repository; no network dependency, scripts, analytics, or secrets.</p>
+    <p>Reopen this file at <code>devpost/app-map.html</code>. The app itself is documented in <code>README.md</code>.</p>
+  </footer>
+</main>
+</body>
+</html>
