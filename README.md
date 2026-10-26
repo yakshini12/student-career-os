@@ -4,6 +4,8 @@ A local, evidence-led career workspace for a student preparing for backend inter
 
 This is a proof of concept with **synthetic sample data**. It is not a job board, an application submitter, or a readiness score.
 
+**Live demo:** https://student-career-os-u88t.onrender.com
+
 ## Run it
 
 Requirements: Node.js `^20.19.0` or `>=22.12.0` and npm (Vite 8 requires one of these ranges).
@@ -50,6 +52,8 @@ The app is a static Vite frontend with no backend, server functions, environment
 - Environment variables: none required
 
 The repository includes a Render Blueprint in `render.yaml` for a static site. On Render, choose **New > Blueprint**, connect this repository, and apply the blueprint. The site is served from Render's global CDN over HTTPS.
+
+The current public demo is deployed at **https://student-career-os-u88t.onrender.com**.
 
 ## Demo path
 
